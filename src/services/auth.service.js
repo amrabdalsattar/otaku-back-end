@@ -23,11 +23,11 @@ const register = async (email, password) => {
 
   const user = await User.create({ email, password: hashedPassword });
 
-  const token = generateToken({ id: user._id, email: user.email });
+  const token = generateToken({ id: user._id, email: user.email, role: user.role });
 
   return {
     token,
-    user: { id: user._id, email: user.email, createdAt: user.createdAt },
+    user: { id: user._id, email: user.email, role: user.role, createdAt: user.createdAt },
   };
 };
 
@@ -54,11 +54,11 @@ const login = async (email, password) => {
     throw err;
   }
 
-  const token = generateToken({ id: user._id, email: user.email });
+  const token = generateToken({ id: user._id, email: user.email, role: user.role });
 
   return {
     token,
-    user: { id: user._id, email: user.email, createdAt: user.createdAt },
+    user: { id: user._id, email: user.email, role: user.role, createdAt: user.createdAt },
   };
 };
 

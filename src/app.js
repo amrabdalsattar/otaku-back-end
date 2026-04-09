@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 
 const authRoutes = require('./routes/auth.routes');
 const animeRoutes = require('./routes/anime.routes');
@@ -9,6 +10,9 @@ const errorMiddleware = require('./middlewares/error.middleware');
 const setupSwagger = require('./docs/swagger');
 
 const app = express();
+
+// ── CORS ─────────────────────────────────────────────────────────────────────
+app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
 
 // ── Body Parser ──────────────────────────────────────────────────────────────
 app.use(express.json());
