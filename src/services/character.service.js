@@ -20,6 +20,8 @@ const getCharacterById = async (characterId) => {
   return {
     id: character._id,
     charName: character.name,
+    image: character.image,
+    animeId: anime._id,
     animeName: anime.name,
     biography: character.biography,
     favouritesNumber: character.favouritesNumber,
@@ -51,6 +53,7 @@ const getTopCharacters = async () => {
     image: c.image,
     kanjiName: c.kanjiName,
     favouritesNumber: c.favouritesNumber,
+    animeId: topAnime._id,
     animeName: topAnime.name,
   }));
 };

@@ -70,6 +70,7 @@ const getAnimeById = async (req, res, next) => {
       data: {
         id: anime._id,
         name: anime.name,
+        image: anime.image,
         synopsis: anime.synopsis,
         characters: anime.characters,
         type: anime.type,
